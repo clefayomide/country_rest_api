@@ -4,7 +4,7 @@ import DarkMode from './darkMode/DarkMode'
 
 const Header = () => {
     return (
-        <div className='flex justify-between'>
+        <div className='flex justify-between bg-white p-8 shadow-md'>
             <HeaderText/>
             <DarkMode/>
         </div>

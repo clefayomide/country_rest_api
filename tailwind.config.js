@@ -2,6 +2,9 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      width: {
+        '3/10': '30%'
+      },
       colors: {
         darkModeElements: 'hsl(209, 23%, 22%)',
         darkModeBackground: 'hsl(207, 26%, 17%)',
