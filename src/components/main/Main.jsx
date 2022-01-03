@@ -1,33 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import SearchIcon from './search/searchIcon/SearchIcon'
 import SearchInput from './search/searchInput/SearchInput'
 import Filter from './filter/Filter'
 import FilterDropdown from './filter/filterDropDown/FilterDropdown'
 import Card from './cards/Card'
+import { Context } from '../../App'
 
 const Main = () => {
+    const { countryData } = useContext(Context)
+
     // filter state
     const [filterIsOpen, setFilterIsOpen] = useState(false)
-    // country data
-    const [countryData, setCountryData] = useState([])
-
-    // fetch country data
-    const getCountryData = () => {
-        fetch('https://restcountries.com/v3.1/all').then((res) => {
-            if(res.status >= 200 && res.status <= 299){
-                return res.json()
-            }else{
-                console.log('an error occurred')
-            }
-        }).then((data) => {
-            setCountryData(data)
-        })
-    }
-
-    useEffect(() => {
-        getCountryData()
-    }, [])
-
+    
     return (
         <div className='p-10'>
             <div className='flex justify-between items-center'>

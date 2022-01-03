@@ -10,7 +10,8 @@ module.exports = {
         darkModeBackground: 'hsl(207, 26%, 17%)',
         lightModeText: 'hsl(200, 15%, 8%)',
         lightModeBackground: 'hsl(0, 0%, 98%)',
-        darkModeTextAndDarkModeElements: 'hsl(0, 0%, 100%)'
+        darkModeTextAndDarkModeElements: 'hsl(0, 0%, 100%)',
+        salmon: '#fd8c73'
       },
       fontFamily: {
         Nunito: ['Nunito Sans', 'sans-serif'],
