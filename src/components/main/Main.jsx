@@ -5,9 +5,10 @@ import Filter from './filter/Filter'
 import FilterDropdown from './filter/filterDropDown/FilterDropdown'
 import Card from './cards/Card'
 import { Context } from '../../App'
+import SearchResult from './search/searchResults/SearchResult'
 
 const Main = () => {
-    const { countryData } = useContext(Context)
+    const { countryData, searchValue, countryName } = useContext(Context)
 
     // filter state
     const [filterIsOpen, setFilterIsOpen] = useState(false)
@@ -31,6 +32,10 @@ const Main = () => {
             <div className='relative'>
                 {filterIsOpen && <FilterDropdown/>}
             </div>
+
+            {searchValue && <div className='w-96 bg-white shadow-xl mt-1.5 rounded-sm max-h-28 overflow-scroll'>
+                {countryName.map((country) => <SearchResult key={country.country.country_id} data={country.country.country_name}/>)}
+            </div>}
 
             {/* flags and details */}
             <div className='flex justify-between flex-wrap'>

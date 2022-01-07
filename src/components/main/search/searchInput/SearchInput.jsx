@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import FormInput from '../../../input/FormInput'
 
 const SearchInput = () => {
+    const [inputValue, setInputValue] = useState("")
+    
     return (
         <>
-            <FormInput type="text" placeholder="Search for a country..." className="ml-6 w-full border-none outline-none"/>
+            <FormInput type="text" placeholder="Search for a country..." className="ml-6 w-full border-none outline-none" value={inputValue} valueOnChange={setInputValue}/>
         </>
     )
 }
