@@ -9,7 +9,7 @@ import { Context } from '../../App'
 import SearchResult from './search/searchResults/SearchResult'
 
 const Main = () => {
-    const { countryData, searchValue, countryName } = useContext(Context)
+    const { countryData, searchValue, countryName, filteredCountry } = useContext(Context)
 
     // filter state
     const [filterIsOpen, setFilterIsOpen] = useState(false)
@@ -40,7 +40,7 @@ const Main = () => {
 
             {/* flags and details */}
             <div className='flex justify-between flex-wrap'>
-                {countryData.map((country) => <Card key={uuidv4()} data={country}/>)}
+                {filteredCountry.length > 0 ? filteredCountry.map((country) => <Card key={uuidv4()} data={country}/>) : countryData.map((country) => <Card key={uuidv4()} data={country}/>)}
             </div>
         </div>
     )

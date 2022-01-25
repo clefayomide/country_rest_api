@@ -3,7 +3,7 @@ import { Context } from '../../../App'
 import { v4 as uuidv4} from 'uuid'
 import { Link } from 'react-router-dom'
 
-const BorderCountries = ({ borders, name }) => {
+const BorderCountries = ({ borders }) => {
     const { countryData } = useContext(Context)
 
     const getBorderCountryFullname = (altSpelling) => {

@@ -2,14 +2,14 @@ import React, { useContext } from 'react'
 import { Context } from '../../../../App'
 
 const SearchResult = ({ data }) => {
-    const { searchValue, setSearchValue, url, setCountryData, setIsLoading } = useContext(Context)
+    const { searchValue, setSearchValue, url, setIsLoading, setFilteredCountry } = useContext(Context)
 
     // country search function
     const searchCountry = (parameter) => {
       setIsLoading(true)
       try{
         fetch(`${url}name/${parameter.target.innerHTML}?fullText=true`).then((res) => res.json()).then((data) => {
-          setCountryData(data)
+          setFilteredCountry(data)
           setSearchValue("")
           setIsLoading(false)
         })

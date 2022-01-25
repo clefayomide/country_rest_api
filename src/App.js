@@ -15,6 +15,7 @@ function App() {
 
   // country data
   const [countryData, setCountryData] = useState([])
+  const [filteredCountry, setFilteredCountry] = useState([])
   const [countryName] = useState(data)
 
   // fetch country data
@@ -39,7 +40,7 @@ function App() {
     return <Loading/>
   }
   return (
-    <Context.Provider value={{ setIsLoading, countryData, url, setCountryData, searchValue, setSearchValue, countryName }}>
+    <Context.Provider value={{ setIsLoading, countryData, url, setCountryData, searchValue, setSearchValue, countryName, filteredCountry, setFilteredCountry }}>
       <div className="bg-lightModeBackground dark:bg-darkModeBackground h-screen font-Nunito">
         <header>
           <Header/>
