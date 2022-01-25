@@ -6,7 +6,7 @@ const SearchInput = () => {
     
     return (
         <>
-            <FormInput type="text" placeholder="Search for a country..." className="ml-6 w-full border-none outline-none" value={inputValue} valueOnChange={setInputValue}/>
+            <FormInput type="text" placeholder="Search for a country..." className="ml-6 w-full border-none outline-none dark:bg-darkModeElements dark:text-darkModeTextAndDarkModeElements" value={inputValue} valueOnChange={setInputValue}/>
         </>
     )
 }

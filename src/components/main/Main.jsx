@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import SearchIcon from './search/searchIcon/SearchIcon'
 import SearchInput from './search/searchInput/SearchInput'
 import Filter from './filter/Filter'
@@ -17,7 +18,7 @@ const Main = () => {
         <div className='p-10'>
             <div className='flex justify-between items-center'>
                 {/* search */}
-                <div className='flex bg-white pt-4 pb-4 pl-5 w-96 shadow-lg rounded-md'>
+                <div className='flex bg-white dark:bg-darkModeElements pt-4 pb-4 pl-5 w-96 shadow-lg rounded-md'>
                     <SearchIcon/>
                     <SearchInput/>
                 </div>
@@ -33,13 +34,13 @@ const Main = () => {
                 {filterIsOpen && <FilterDropdown/>}
             </div>
 
-            {searchValue && <div className='w-96 bg-white shadow-xl mt-1.5 rounded-sm max-h-28 overflow-scroll'>
-                {countryName.map((country) => <SearchResult key={country.country.country_id} data={country.country.country_name}/>)}
+            {searchValue && <div className='w-96 bg-white dark:bg-darkModeElements shadow-xl mt-1.5 rounded-sm max-h-28 overflow-scroll'>
+                {countryName.map((country) => <SearchResult key={uuidv4()} data={country.name}/>)}
             </div>}
 
             {/* flags and details */}
             <div className='flex justify-between flex-wrap'>
-                {countryData.map((country) => <Card key={country.name.common} data={country}/>)}
+                {countryData.map((country) => <Card key={uuidv4()} data={country}/>)}
             </div>
         </div>
     )

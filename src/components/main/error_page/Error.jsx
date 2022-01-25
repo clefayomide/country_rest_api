@@ -1,12 +1,11 @@
 import React from 'react'
 
-const Icon = ({ svg }) => {
+const Error = () => {
     return (
         <div>
-            {svg}
+            error occured
         </div>
-        
     )
 }
 
-export default Icon
+export default Error
