@@ -1,46 +1,37 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import SearchIcon from './search/searchIcon/SearchIcon'
 import SearchInput from './search/searchInput/SearchInput'
-import Filter from './filter/Filter'
-import FilterDropdown from './filter/filterDropDown/FilterDropdown'
 import Card from './cards/Card'
 import { Context } from '../../App'
 import SearchResult from './search/searchResults/SearchResult'
+import Select from './select_by_region/Select'
 
 const Main = () => {
-    const { countryData, searchValue, countryName, filteredCountry } = useContext(Context)
+    const { countryData, searchValue, countryName, filteredCountry, filteredByRegion } = useContext(Context)
 
-    // filter state
-    const [filterIsOpen, setFilterIsOpen] = useState(false)
-    
     return (
         <div className='p-10'>
             <div className='flex justify-between items-center'>
                 {/* search */}
                 <div className='flex bg-white dark:bg-darkModeElements pt-4 pb-4 pl-5 w-96 shadow-lg rounded-md'>
-                    <SearchIcon/>
-                    <SearchInput/>
+                    <SearchIcon />
+                    <SearchInput />
                 </div>
 
-                {/* filter button */}
+                {/* filter by region */}
                 <div>
-                    <Filter filterIsOpen={filterIsOpen} setFilterIsOpen={setFilterIsOpen}/>
+                    <Select />
                 </div>
-            </div>
-
-            {/* filter drop down */}
-            <div className='relative'>
-                {filterIsOpen && <FilterDropdown/>}
             </div>
 
             {searchValue && <div className='w-96 bg-white dark:bg-darkModeElements shadow-xl mt-1.5 rounded-sm max-h-28 overflow-scroll'>
-                {countryName.map((country) => <SearchResult key={uuidv4()} data={country.name}/>)}
+                {countryName.map((country) => <SearchResult key={uuidv4()} data={country.name} />)}
             </div>}
 
             {/* flags and details */}
             <div className='flex justify-between flex-wrap'>
-                {filteredCountry.length > 0 ? filteredCountry.map((country) => <Card key={uuidv4()} data={country}/>) : countryData.map((country) => <Card key={uuidv4()} data={country}/>)}
+                {filteredCountry.length > 0 ? filteredCountry.map((country) => <Card key={uuidv4()} data={country} />) : filteredByRegion.length > 0 ? filteredByRegion.map((country) => <Card data={country} key={uuidv4()}/>) : countryData.map((country) => <Card key={uuidv4()} data={country} />)}
             </div>
         </div>
     )
