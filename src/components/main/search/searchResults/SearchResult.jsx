@@ -20,7 +20,7 @@ const SearchResult = ({ data }) => {
 
     return (
         <>
-          {data.split(" ").join("").toLowerCase().includes(searchValue.split(" ").join("").toLowerCase()) ? <div className='p-2 pl-5 hover:bg-slate-300 dark:hover:bg-darkModeBackground dark:text-darkModeTextAndDarkModeElements cursor-pointer' onClick={searchCountry}>{data === "Congo" ? "Republic of the Congo" : data === "Congo, The Democratic Republic of the" ? "Democratic Republic of the Congo" : data === "Cote D'Ivoire" ? "Ivory Coast": data === "Libyan Arab Jamahiriya" ? "Libya" : data}</div> : ""}
+          {data.split(" ").join("").toLowerCase().includes(searchValue.split(" ").join("").toLowerCase()) ? <div className='p-2 pl-5 hover:bg-slate-300 dark:hover:bg-darkModeBackground dark:text-darkModeTextAndDarkModeElements cursor-pointer' onClick={searchCountry}>{data === "Congo" ? "Republic of the Congo" : data === "Congo, The Democratic Republic of the" ? "Democratic Republic of the Congo" : data === "Cote D'Ivoire" ? "Ivory Coast": data === "Libyan Arab Jamahiriya" ? "Libya" : data === "Brunei Darussalam" ? "Brunei" : data}</div> : ""}
         </>
     )
 }

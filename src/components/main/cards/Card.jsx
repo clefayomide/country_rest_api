@@ -2,13 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Card = ({ data }) => {
-  // destructuring
   const { name, capital, flags, population, region } = data;
   const { common } = name;
   const { png } = flags;
 
   return (
-    <div className="w-3/10 cursor-pointer">
+    <div className="w-full md:w-5/11 lg:w-3/10 cursor-pointer">
       <Link to={`information/${common}`}>
         <div
           style={{ backgroundImage: `url("${png}")` }}
