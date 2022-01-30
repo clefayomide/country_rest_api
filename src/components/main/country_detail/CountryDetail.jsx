@@ -17,6 +17,7 @@ const CountryDetail = () => {
     }
     useEffect(() => {
         getCountryDetails()
+        // eslint-disable-next-line
     }, [common])
     return (
         <div className='p-10'>
