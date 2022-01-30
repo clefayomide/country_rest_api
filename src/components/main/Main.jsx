@@ -12,15 +12,15 @@ const Main = () => {
 
     return (
         <div className='p-10'>
-            <div className='flex justify-between items-center'>
+            <div className='flex justify-between flex-col items-baseline md:flex-row md:items-center'>
                 {/* search */}
-                <div className='flex bg-white dark:bg-darkModeElements pt-4 pb-4 pl-5 w-96 shadow-lg rounded-md'>
+                <div className='flex bg-white dark:bg-darkModeElements pt-4 pb-4 pl-5 w-full md:w-96 shadow-lg rounded-md'>
                     <SearchIcon />
                     <SearchInput />
                 </div>
 
                 {/* filter by region */}
-                <div>
+                <div className='mt-10 md:mt-0'>
                     <Select />
                 </div>
             </div>

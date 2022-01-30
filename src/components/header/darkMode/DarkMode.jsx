@@ -1,26 +1,21 @@
-import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid'
 import Icon from "../../images/Icon";
+import useDarkMode from "../../../hooks/useDarkMode";
 
 const DarkMode = () => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  const toggleMode = () => {
-    document.body.classList.toggle("dark")
-    setDarkMode(!darkMode)
-  };
+  const [colorTheme, setTheme] = useDarkMode()
 
   return (
-    <>
-      {darkMode ? (
-        <div
-          className="flex justify-between w-28 cursor-pointer"
-          onClick={toggleMode}
-        >
+    <div
+      className="flex justify-evenly items-center sm:w-28 md:w-40 cursor-pointer"
+      onClick={() => setTheme(colorTheme)}
+    >
+      {colorTheme === 'light' ?
+        <>
           <Icon
             svg={
               <svg
-              key={uuidv4()}
+                key={uuidv4()}
                 xmlns="http://www.w3.org/2000/svg"
                 width="23"
                 height="23"
@@ -33,16 +28,12 @@ const DarkMode = () => {
             }
           />
           <h4 className="font-semibold text-lightModeText dark:text-darkModeTextAndDarkModeElements">Light Mode</h4>
-        </div>
-      ) : (
-        <div
-          className="flex justify-between w-28 cursor-pointer"
-          onClick={toggleMode}
-        >
+        </> :
+        <>
           <Icon
             svg={[
               <svg
-              key={uuidv4()}
+                key={uuidv4()}
                 xmlns="http://www.w3.org/2000/svg"
                 width="23"
                 height="23"
@@ -58,10 +49,8 @@ const DarkMode = () => {
             ]}
           />
           <h4 className="font-semibold">Dark Mode</h4>
-        </div>
-      )}
-    </>
-  );
-};
-
+        </>
+      }
+    </div>)
+}
 export default DarkMode;

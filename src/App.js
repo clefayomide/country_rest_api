@@ -42,11 +42,11 @@ function App() {
   }
   return (
     <Context.Provider value={{ setIsLoading, countryData, url, setCountryData, searchValue, setSearchValue, countryName, filteredCountry, setFilteredCountry, filteredByRegion, setFilteredByRegion }}>
-      <div className="bg-lightModeBackground dark:bg-darkModeBackground h-full font-Nunito 2xl:w-3/5 2xl:m-auto">
+      <div className="bg-lightModeBackground dark:bg-darkModeBackground font-Nunito 2xl:w-3/5 2xl:m-auto">
         <header>
           <Header/>
         </header>
-        <main>
+        <main className="lg:h-screen">
           <Routes>
             <Route path="/" exact element={<Main/>}/>
             <Route path="information/:common" element={<CountryDetail/>}/>
