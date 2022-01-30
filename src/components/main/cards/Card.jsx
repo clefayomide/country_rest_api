@@ -8,7 +8,7 @@ const Card = ({ data }) => {
 
   return (
     <div className="w-full md:w-5/11 lg:w-3/10 cursor-pointer">
-      <Link to={`information/${common}`}>
+      <Link to={`information/${common.replace(' ', '%20')}`}>
         <div
           style={{ backgroundImage: `url("${png}")` }}
           className="bg-center bg-cover h-36 mt-14 shadow-xl rounded-t-lg"
